@@ -7,11 +7,11 @@ Note that these constructs are purely for conceptual understanding, implementati
 
 ## Composition of types
 
-### Fixed-length and dynamic-length
+### Fixed-size and dynamic-size
 
-SSZ makes a difference between fixed-length and dynamic-length objects, based on a recursive definition to check if the byte-length is variable or not.
+SSZ makes a difference between fixed-size and dynamic-size objects, based on a recursive definition to check if the byte-length is variable or not.
 
-An object is considered **fixed length** if it:
+An object is considered **fixed-size** if it:
 - is a basic-type
 - is a static composition of basic-types
 - is a static composition of a static composition
@@ -30,7 +30,7 @@ A Series has a single element type and a maximum length.
 
 The serialization can be thought of as two parts: the fixed size part, and the variable size part.
 
-If `ElemType` is [a Fixed-size type](TODO):
+If `ElemType` is a fixed-size type:
  - the fixed size part is used for the elements, as element positions can be predetermined because of their fixed size.
  - no variable size part
 If it is not, then:
@@ -48,14 +48,14 @@ For each offset, it MUST hold that `offsets[i-1] <= offsets[i] <= offsets[i+1]`,
 
 ### Compound
 
-Construct: `[FieldTypes](values)`
+Construct: `Compound[FieldTypes](values)`
 
 A Compound is like a series, but each of the values is allowed to be different from the other types. `len(FieldTypes)` MUST be `len(values)`.
 
 Like a Series, a Compound is serialized with a fixed and variable size part.
 
 For each of the fields:
-- if the field type is [a Fixed-size type](TODO): append the serialized field
+- if the field type is a fixed-size type: append the serialized field
 - if not, then:
   - append an offset to the fixed part, pointing to the serialized element in the variable size part
   - append the serialized element to the variable size part, after completing the fixed size part, in order relative to possible other variable size elements.
