@@ -3,7 +3,7 @@
 Let `A` be an object derived from another object `B` by replacing some of the (possibly nested) values of `B` by their `hash_tree_root`.
 Because of this substitution, `hash_tree_root(A) == hash_tree_root(B)`.
 
-We say `A` is a **"summary"** of `B`, and that `B` is an **"expansion"** of `A`.
+We say `A` is a **"summary"** of `B`, and that `B` is an **"expansion"** of `A`. The replaced values are the **"details"** of `B` with respect to `A`.
 
 Summary instances expand to at most one instance of a given expansion: 
  the detail of the summary is a strict subset of that of the expansion and the difference cannot be altered without changing the summary root.
@@ -26,6 +26,10 @@ Someone may exploit an unexpected expansion, e.g. querying a binary path beyond 
 
 A summary type can be defined by taking the expansion and substituting the types of the elements to summarize with `Bytes32` to reflect their `hash_tree_root`.
 Or vice versa an expansion can be defined based on a summary type.
+
+Some details can also be summarized with a `signing_root`. An implementer has two options here:
+1. Ignore the final signature field, the root of this container in the summary type can be annotated to do this.
+2. Exclude the signature field from the expansion definition to begin with.
 
 ### Example
 
