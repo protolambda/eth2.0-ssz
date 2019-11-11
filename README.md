@@ -84,7 +84,7 @@ The proposals, drafts, candidates and finished documents are discussed through i
 | Rust        | Lighthouse                | Sigma Prime                       | Apache-2.0         | Active             |[`sigp/lighthouse/ssz`](https://github.com/sigp/lighthouse/tree/master/eth2/utils/ssz) |
 | Rust        | Shasper                   | ParityTech                        | GPL-3.0            | Active             |[`paritytech/shasper/ssz`](https://github.com/paritytech/shasper/tree/master/utils/ssz) |
 | Typescript  | Lodestar                  | Chainsafe Systems                 | LGPL-v3.0          | Active             |[`ChainSafe/lodestar/ssz`](https://github.com/ChainSafe/lodestar/tree/master/packages/ssz) |
-| C#          | Cortex                    | Sly Gryphon (@sgryphon)           | MS-RL              | Under construction |[`sgryphon/cortex-ssz`](https://github.com/sgryphon/cortex-ssz) |
+| C#          | Cortex                    | Sly Gryphon (@sgryphon)           | LGPL-v3.0          | Under construction |[`sgryphon/cortex-ssz`](https://github.com/sgryphon/cortex-ssz) |
 | TypeScript  | Lodestar                  | ChainSafe Systems                 | Apache-2.0         | Archived           |[`ChainSafe/ssz-js`](https://github.com/ChainSafe/ssz-js) |
 | Java        | Cava                      | ConsenSys                         | Apache-2.0         | Archived           |[`ConsenSys/cava/ssz`](https://www.github.com/ConsenSys/cava/tree/master/ssz) |
 | Swift       | Yeeth                     | Dean Eigenmann (@decanus, @yeeth) | MIT                | Incomplete         |[`yeeth/SimpleSerialize.swift`](https://github.com/yeeth/SimpleSerialize.swift) |
