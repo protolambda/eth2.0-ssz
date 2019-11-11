@@ -1,0 +1,4 @@
+
+# temporarily disable python: more illustrative code to be implemented after docs are stable, and possible py-ssz integration is clear.
+venv
+*.py
