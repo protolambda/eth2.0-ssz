@@ -24,11 +24,11 @@ Elements can be read and written in `O(1)`, as they are indexed (using an offset
 
 ### Functionality
 
-For all Vector model purposes, `len(values)` MUST be equal to `N`.
+For all Vector model purposes, `len(values) == N` MUST hold.
 
-- **serialize**: as a `Series[T, N](values)`, i.e. each element value as type `T`
-- **deserialize** as a `Series[T, N](values)`
-- **hash-tree-root**: as a `Series[T, N](values)`
+- **serialize**: as a `Series[T](values)`, i.e. each element value as type `T`
+- **deserialize** as a `Series[T](values)`
+- **hash-tree-root**: as a `Series[T](values)`
 
 
 ## Lists
@@ -58,10 +58,12 @@ Hence, lists should not be allocated to their full limit for larger numbers.
 ### Functionality
 
 Note that the typing is constant (`T, N` are both constants) to enforce limits on compile time.
-  
-- **serialize**: as a `Series[T, N](values)`, i.e. each element value as type `T`.
-- **deserialize** as a `Series[T, N](values)`
-- **hash-tree-root**: as a `Mix(Series[T, N](values), length)`, i.e. the length is mixed with the hash-tree-root of the list as a `Series`.
+
+For all List model purposes, `len(values) <= N` MUST hold.
+
+- **serialize**: as a `Series[T](values)`, i.e. each element value as type `T`.
+- **deserialize** as a `Series[T](values)`
+- **hash-tree-root**: as a `Mix(Series[T](values), length)`, i.e. the length is mixed with the hash-tree-root of the list as a `Series`.
 
 
 ## Container

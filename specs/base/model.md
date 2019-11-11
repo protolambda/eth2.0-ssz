@@ -22,11 +22,9 @@ The below constructs, and the types themselves go into detail on this.
 
 ### Series
 
-Construct: `Series[ElemType, Max](values)`
+Construct: `Series[ElemType](values)`
 
-A Series has a single element type and a maximum length.
-
-- if `len(values) > Max`: the contents SHOULD not be serialized, as they contradict the type.
+A Series has a single element type, repeated for all elements.
 
 The serialization can be thought of as two parts: the fixed size part, and the variable size part.
 
