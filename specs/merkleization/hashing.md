@@ -32,4 +32,4 @@ Other hash-functions have been considered for specific use cases, but are active
 
 - 256 bits SHA-3 and Keccak were considered but dropped in favor of SHA-256 support and compatibility.
 - "fast-SHA256" as described in [BIP-98](https://github.com/bitcoin/bips/blob/master/bip-0098.mediawiki), optimized for two 32 byte inputs. But still a draft, and even more compatibility concerns.
-- Others (TODO: To be documented)
+- A S\[T/N]ARK-friendly hash function, the aim is to migrate in a future Eth2 deployment phase.
