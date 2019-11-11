@@ -4,28 +4,31 @@ Simple Serialize (SSZ) is a standard for the encoding and merkleization of struc
 
 ## Index
 
-- Base model
-  - Series
-  - Compounds
-  - Merkle mix-ins
+- [Base model](./specs/base/model.md)
+  - [Series](./specs/base/model.md#series)
+  - [Compound](./specs/base/model.md#compound)
+  - [Merkle mix-ins](./specs/base/model.md#merkle-mix-ins)
 - Types
-  - Basic types
-  - Bitvector and Bitlist
-  - Vector and List
-  - Container
-  - Union
+  - [Basic types](./specs/types/basic.md)
+  - [Bitfields](./specs/types/bitfields.md)
+    - [Bitvector](./specs/types/bitfields.md#bitvector)
+    - [Bitlist](./specs/types/bitfields.md#bitlist)
+  - [Complex](./specs/types/complex.md)
+    - [Vector](./specs/types/complex.md#vector)
+    - [List](./specs/types/complex.md#lists)
+    - [Container](./specs/types/complex.md#container)
+  - [Union](./specs/types/union.md)
 - Merkleization
-  - Hashing
-  - (Multi) Merkle proofs
+  - [Hashing](./specs/merkleization/hashing.md)
+  - [Merkle proofs](./specs/merkleization/merkle_proofs.md)
   - Merkle proof backings
-    - Classical
-    - Tree offsets
-    - ...
+    - [Classic](./specs/merkleization/proof_backings/classic.md)
+    - Tree offsets (WIP)
 - Navigation
-    - Generalized indices
-    - Paths
-    - Dynamic selectors
-- Partials
+    - [Generalized indices](./specs/navigation/generalized_indices.md)
+    - [Paths](./specs/navigation/paths.md)
+    - [Summaries and expansions](./specs/navigation/summaries_expansions.md)
+- [Partials](./specs/partials/partials.md)
 
 ## Design
 
