@@ -58,16 +58,3 @@ For each of the fields:
   - append an offset to the fixed part, pointing to the serialized element in the variable size part
   - append the serialized element to the variable size part, after completing the fixed size part, in order relative to possible other variable size elements.
 
-
-## Merkle Mix-ins
-
-Construct: `Mix(core, tag)`
-
-To tag specific information ("`tag`" here) to a root value ("`core`"), e.g. a length of the contents the root represents, a mix-in is used.
-
-This merkleization step is simply: `H(core, tag)`, with both inputs left-padded to to a full 32 bytes.
-
-SSZ is consistent with merkleizing in these tags to the right: it avoids a kink of branch nodes in common proof encodings.
-I.e. the left-most contents value and its branch of witness nodes go straight to the root. 
-
-
