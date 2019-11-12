@@ -1,60 +1,53 @@
-# Base model
+# Base serialization model
 
-SSZ concepts are defined with just a few base constructs (or "kinds"), to keep it minimal and simple.
+SSZ serialization is done 
 
-Note that these constructs are purely for conceptual understanding, implementations can optimize more for individual types.
-
-
-## Composition of types
-
-### Fixed-size and dynamic-size
+### Fixed-size and variable-size
 
 SSZ makes a difference between fixed-size and dynamic-size objects, based on a recursive definition to check if the byte-length is variable or not.
 
-An object is considered **fixed-size** if it:
-- is a basic-type
-- is a static composition of basic-types
-- is a static composition of a static composition
+An object is considered **fixed-size** if it is:
+- a basic-type
+- a fixed composition of fixed-size types
 
-This static property breaks when e.g. there is a variable amount of elements, or the exact type of its serialization cannot be determined without reading data.
-The below constructs, and the types themselves go into detail on this. 
+This fixed-size property breaks when e.g. there is a variable amount of elements,
+ or the exact type of its serialization cannot be determined without reading data.
 
+An object is considered **variable-size** if and only if it is not fixed-size.
 
-### Series
+## Serialization of s
+ 
+Serialization can be thought of as two parts: the fixed-size part, and the variable-size part.
 
-Construct: `Series[ElemType](values)`
+Fixed-size types do not have a variable part. 
 
-A Series has a single element type, repeated for all elements.
+Note that if all elements have the same type, the two parts can be specialized. However, conceptually it is all the same.
 
-The serialization can be thought of as two parts: the fixed size part, and the variable size part.
+### Fixed part
 
-If `ElemType` is a fixed-size type:
- - the fixed size part is used for the elements, as element positions can be predetermined because of their fixed size.
- - no variable size part
-If it is not, then:
- - the fixed size part is an *offset prologue* that describes the byte positions of each of the elements
- - the variable size part is used for the elements
+For each of the elements in order, if the element type is:
+- fixed-size: serialize the element and append it to the fixed-size part.
+- variable-size:
+  - Append an offset to the fixed-size part, pointing to the start of the element data in the variable-size part.
+  - Serialize the element and append it to the variable size part.
 
-The elements themselves are serialized independently, and tightly packed in order.
+#### Offsets
 
-#### Offsets prologue
+Within the fixed-size part offsets may be encoded to locate elements in the variable-size part.
 
-Offsets are a sequence of `uint32` numbers, pointing to the byte index, relative to the start of the serialized data (including offsets), of the first byte of the element.
+Offsets are 4 bytes each, typed as `uint32`, and can range from `[bytelen(fixed_part), bytelen(fixed_part) + bytelen(variable_part)]`. I.e. the fixed-part byte length is included as part of the offset.
+
+Each offset is pointing to the start of the serialized data, the index of the first byte of the element.
 
 For each offset, it MUST hold that `offsets[i-1] <= offsets[i] <= offsets[i+1]`, so that elements can be read from the byte stream following the offsets in order.
 
+Some elements in the variable-size part may be empty, this can result in:
+- sequential equal offsets
+- the last offset being equal to the end of the scope.
 
-### Compound
+There may be a dynamic number of variable-size elements all of the same type,
+ in this case the element count can be derived from the *first offset*: `offset / 4`, as each offset matches an element and is 4 bytes. 
 
-Construct: `Compound[FieldTypes](values)`
+### Variable part
 
-A Compound is like a series, but each of the values is allowed to be different from the other types. `len(FieldTypes)` MUST be `len(values)`.
-
-Like a Series, a Compound is serialized with a fixed and variable size part.
-
-For each of the fields:
-- if the field type is a fixed-size type: append the serialized field
-- if not, then:
-  - append an offset to the fixed part, pointing to the serialized element in the variable size part
-  - append the serialized element to the variable size part, after completing the fixed size part, in order relative to possible other variable size elements.
-
+For variable-size elements, the elements are serialized, tightly packed, appended in order to the variable-size part.
