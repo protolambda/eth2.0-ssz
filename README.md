@@ -4,9 +4,6 @@ Simple Serialize (SSZ) is a standard for the encoding and merkleization of struc
 
 ## Index
 
-- [Base model](./specs/base/model.md)
-  - [Series](./specs/base/model.md#series)
-  - [Compound](./specs/base/model.md#compound)
 - Types
   - [Basic types](./specs/types/basic.md)
   - [Bitfields](./specs/types/bitfields.md)
@@ -17,6 +14,9 @@ Simple Serialize (SSZ) is a standard for the encoding and merkleization of struc
     - [List](./specs/types/complex.md#lists)
     - [Container](./specs/types/complex.md#container)
   - [Union](./specs/types/union.md)
+- Representation
+  - [Fixed and variable size](./specs/representation/fixed_variable_size.md)
+  - [Sequences](./specs/representation/sequences.md)
 - Merkleization
   - [Hashing](./specs/merkleization/hashing.md)
   - [Merkle proofs](./specs/merkleization/merkle_proofs.md)
