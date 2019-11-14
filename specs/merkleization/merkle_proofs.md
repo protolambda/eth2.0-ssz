@@ -2,7 +2,7 @@
 
 ## For beginners
 
-Merkle proofs enable users to efficiently proof specific details of some data-structure that is known by a given hash.
+Merkle proofs enable users to efficiently prove specific details of some data-structure that is known by a given hash.
 
 The efficiency is achieved with a tree structure of hashes, with the data in the leaves of the tree.
 For a proof of a set of leaves, branches to other leaves do not have to be fully encoded or hashed,
@@ -12,7 +12,7 @@ Compare the reconstructed root with the trusted root the data is known by, and t
 ## Accumulator
 
 Merkle trees are a type of cryptographic accumulator, and a root is a binding vector commitment to a set of contents.
-I.e. the position of the contents is also committed, not just inclusion.
+I.e. the position of the contents is also committed, not just inclusion. Changing the position of any of the contents would change the Merkle root.
 
 Membership of a leaf value, at a specific position, can be proven with witness data:
  a set of hashes along the way to the root of the tree, taking `O(log(N))` space and computation for a proof, as opposed to `N` for providing the full data.
