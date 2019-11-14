@@ -2,6 +2,8 @@
 
 SSZ utilizes the SHA-256 hash function.
 
+The standard specification for SHA-256 can be found in [FIPS 180-4](https://csrc.nist.gov/publications/detail/fips/180/4/final).
+
 ## Hashing primitive for binary trees.
 
 ```
