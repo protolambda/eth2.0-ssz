@@ -6,6 +6,8 @@ The complex types are all serialized like [Sequences](../representation/sequence
 
 A complex object is considered fixed size if all of the contained elements are fixed size, and type has a fixed element count (e.g. Lists cannot be fixed size).
 
+Elements can be read and written in `O(1)`, as they are indexed (using an [offsets prologue](../representation/sequences.md#offsets) if `T` is variable size).
+
 ## Vector
 
 Type: `Vector[T, N]`
@@ -15,8 +17,6 @@ Default value: `[default(T)] * N`, i.e. all elements set to their default value.
 A Vector is a sequence of elements, all of the same type `T`, and of fixed length `N`.
 
 Empty vectors (`N = 0`) are illegal.
-
-Elements can be read and written in `O(1)`, as they are indexed (using an offsets prologue if `T` is variable size).
 
 ### Representation
 
