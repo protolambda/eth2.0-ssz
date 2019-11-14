@@ -40,7 +40,7 @@ Default value: `False`
 
 A single byte: 1 (i.e. `0b00000001`) for `True`, and 0 (i.e. `0b00000000`) for `False`.
 
-To have an injective mapping from serialized byte to a value, the non-utilized bits of the byte MUST all be zero bits.
+To have a one-to-one correspondence from value to serialized byte, the non-utilized bits of the byte MUST all be zero bits.
 
 ### Merkleization
 
