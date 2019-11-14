@@ -1,10 +1,8 @@
-| Standardization stage | 4 | 
-
 # Complex types
 
-Complex types are types that can hold multiple values at the same time, with a familiar usage.
+Complex types are types that can hold multiple values at the same time, with usage similar to that of a `struct` in popular programming languages.
 
-The complex types are defined based on purer types called "kinds", primarily `Series` and `Compound`, described in the [Base model](../base/model.md). 
+The complex types are all serialized like [Sequences](../representation/sequences.md).
 
 A compound object is considered fixed size if all of the contained elements are fixed size, and the container type has a fixed element count (e.g. Lists cannot be fixed size).
 
@@ -22,13 +20,13 @@ Empty vectors (`N = 0`) are illegal.
 
 Elements can be read and written in `O(1)`, as they are indexed (using an offsets prologue if `T` is variable size).
 
-### Functionality
+### Representation
 
-For all Vector model purposes, `len(values) == N` MUST hold.
+Serialized and deserialized like a [Sequence](../representation/sequences.md) of the `values`, all of type `T`.
 
-- **serialize**: as a `Series[T](values)`, i.e. each element value as type `T`
-- **deserialize** as a `Series[T](values)`
-- **hash-tree-root**: as a `Series[T](values)`
+### Merkleization
+
+`root = merkle_subtree(chunify(values))`, see [`merkle_subtree`](../merkleization/subtree_merkleization.md) and [`chunkify`](../merkleization/chunkify.md)
 
 
 ## Lists
@@ -52,18 +50,20 @@ This limit is preset for two primary reasons:
 For small limits, the type information may help to optimize for a single full list allocation.
 However, list limits can be arbitrarily high as the cost for serialization and merkleization is `O(n)`:
  - the limit is not padded to in serialization
- - `O(log(N))` [zero-hashes](TODO) may need to be merged during merkleization.
+ - `O(log(N))` [zero-hashes](../merkleization/hashing.md#zero-hashes) may need to be merged during merkleization.
 Hence, lists should not be allocated to their full limit for larger numbers.
 
-### Functionality
+### Representation
 
-Note that the typing is constant (`T, N` are both constants) to enforce limits on compile time.
+Serialized and deserialized like a [Sequence](../representation/sequences.md) of the `values`, all of type `T`.
 
-For all List model purposes, `len(values) <= N` MUST hold.
+Note: A list is by definition variable-size, but this does not necessarily mean its elements are.
 
-- **serialize**: as a `Series[T](values)`, i.e. each element value as type `T`.
-- **deserialize** as a `Series[T](values)`
-- **hash-tree-root**: as a `Mix(Series[T](values), length)`, i.e. the length is mixed with the hash-tree-root of the list as a `Series`.
+### Merkleization
+
+`root = mix_in_num(merkle_subtree(chunify(values), limit=chunk_count(Lit[T,N])), length)`,
+ see [`merkle_subtree`](../merkleization/subtree_merkleization.md),
+  [`chunkify, chunk_count`](../merkleization/chunkify.md) and [`mix_in_num`](../merkleization/mixin.md). 
 
 
 ## Container
@@ -78,9 +78,12 @@ Note that field names are not included in serialization or merkleization: a Cont
 
 An empty container, i.e. 0 fields, is illegal.
 
-### Functionality
+### Representation
 
-- **serialize**: as a `Compound[T_f...](field_values)`, i.e. each of the fields with the respective type.
-- **deserialize** as a `Compound[T_f...](field_values)`
-- **hash-tree-root**: as a `Compound[T_f...](field_values)`
+Serialized and deserialized like a [Sequence](../representation/sequences.md) of the `fields`, each of their own type `T_i`.
+
+### Merkleization
+
+`root = merkle_subtree(chunify(fields))`,
+ see [`merkle_subtree`](../merkleization/subtree_merkleization.md), [`chunkify`](../merkleization/chunkify.md).
 

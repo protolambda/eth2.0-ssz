@@ -14,5 +14,6 @@ An Union is considered to have a dynamic encoding-size, even if all the selectab
 
 Serialization is defined as an `uint32` for the type index, followed by the serialization of the selected option.
 
-Merkleization is defined as `Mix(x, i)` where `x` is the root of the selected option with index `i` (padded to 32 bytes, effectively an `uint256`).
- 
+## Merkleization
+
+Merkleization is defined as `mix_in_num(x, i)` where `x` is the root of the selected option with index `i` (right-padded to 32 bytes, effectively an `uint256`).
