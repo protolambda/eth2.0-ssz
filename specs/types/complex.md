@@ -4,9 +4,7 @@ Complex types are types that can hold multiple values at the same time, with usa
 
 The complex types are all serialized like [Sequences](../representation/sequences.md).
 
-A compound object is considered fixed size if all of the contained elements are fixed size, and the container type has a fixed element count (e.g. Lists cannot be fixed size).
-
-An element within a compound object can however be fixed-size; the relation is one way only.
+A complex object is considered fixed size if all of the contained elements are fixed size, and type has a fixed element count (e.g. Lists cannot be fixed size).
 
 ## Vector
 
