@@ -45,7 +45,7 @@ This limit is preset for two primary reasons:
 
 #### Allocation
 
-For small limits, the type information may help to optimize for a single full list allocation.
+For small list limits, the limit type information may help to optimize for a single allocation of full list capacity.
 However, list limits can be arbitrarily high as the cost for serialization and merkleization is `O(n)`:
  - the limit is not padded to in serialization
  - `O(log(N))` [zero-hashes](../merkleization/hashing.md#zero-hashes) may need to be merged during merkleization.
