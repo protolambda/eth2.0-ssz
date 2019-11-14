@@ -24,7 +24,7 @@ Serialized and deserialized like a [Sequence](../representation/sequences.md) of
 
 ### Merkleization
 
-`root = merkle_subtree(chunify(values))`, see [`merkle_subtree`](../merkleization/subtree_merkleization.md) and [`chunkify`](../merkleization/chunkify.md)
+`root = merkle_subtree(chunkify(values))`, see [`merkle_subtree`](../merkleization/subtree_merkleization.md) and [`chunkify`](../merkleization/chunkify.md)
 
 
 ## Lists
@@ -59,7 +59,9 @@ Note: A list is by definition variable-size, but this does not necessarily mean 
 
 ### Merkleization
 
-`root = mix_in_num(merkle_subtree(chunify(values), limit=chunk_count(Lit[T,N])), length)`,
+Note: the contents subtree (not including the length mix-in) is padded to fit the limit of the bitlist.
+
+`root = mix_in_num(merkle_subtree(chunkify(values), limit=chunk_count(Lit[T,N])), length)`,
  see [`merkle_subtree`](../merkleization/subtree_merkleization.md),
   [`chunkify, chunk_count`](../merkleization/chunkify.md) and [`mix_in_num`](../merkleization/mixin.md). 
 
@@ -82,6 +84,6 @@ Serialized and deserialized like a [Sequence](../representation/sequences.md) of
 
 ### Merkleization
 
-`root = merkle_subtree(chunify(fields))`,
+`root = merkle_subtree(chunkify(fields))`,
  see [`merkle_subtree`](../merkleization/subtree_merkleization.md), [`chunkify`](../merkleization/chunkify.md).
 
