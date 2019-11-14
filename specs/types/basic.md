@@ -24,7 +24,7 @@ The integers have a little-endian representation.
 
 The integers, represented as bytes, are padded on the right side with zeroed bytes to a total of 32 bytes for merkleization.
 Note:
- - Some complex types pack integers in chunks, and reduce the merkleization overhead.
+ - Some complex types pack smaller integers together into 32 bytes, to reduce the merkleization cost.
  - Because of the little-endianness and right-padding, equal integers of different bit-sizes all map to the same 32 bytes value.
 
 
