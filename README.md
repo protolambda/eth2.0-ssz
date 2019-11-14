@@ -4,7 +4,7 @@ Simple Serialize (SSZ) is a standard for the encoding and merkleization of struc
 
 ## Index
 
-- Types
+- [Types](./specs/types/general.md)
   - [Basic types](./specs/types/basic.md)
   - [Bitfields](./specs/types/bitfields.md)
     - [Bitvector](./specs/types/bitfields.md#bitvector)
@@ -20,10 +20,13 @@ Simple Serialize (SSZ) is a standard for the encoding and merkleization of struc
 - Merkleization
   - [Hashing](./specs/merkleization/hashing.md)
   - [Merkle proofs](./specs/merkleization/merkle_proofs.md)
+  - [Chunkify](./specs/merkleization/chunkify.md)
   - [Merkle mix-ins](./specs/merkleization/mixin.md)
+  - [Subtree Merkleization](./specs/merkleization/subtree_merkleization.md)
   - Merkle proof backings
     - [Classic](./specs/merkleization/proof_backings/classic.md)
     - Tree offsets (WIP)
+    - More (Turboproofs/Simple-token proofs/etc.)
 - Navigation
     - [Generalized indices](./specs/navigation/generalized_indices.md)
     - [Paths](./specs/navigation/paths.md)
