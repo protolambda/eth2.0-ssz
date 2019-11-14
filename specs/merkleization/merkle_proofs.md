@@ -25,7 +25,7 @@ One of the few opinionated choices made by SSZ for Eth2 is the choice for a **bi
 
 Binary trees provide simplicity and efficiency:
 - No irregular branch structures
-- Minimal base to merkleize any data structure
+- Any data structure can be translated to a binary tree with minimal effort.
 - Less proof witness data in favor of a few more hash operations
 - High affinity with bitfields for navigation and description
 - Enable a wide range of other binary-tree specific optimizations
@@ -57,6 +57,7 @@ Proof: `H(H(4, H(10,11)), 3) == 1`
 #### Multiples leaves
 
 Also called "multi-proofs".
+Note that witness data is shared between leafs; proving multiple values at the same time is more efficient than proving them individually.
 
 ```
                       1
