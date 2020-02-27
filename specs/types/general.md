@@ -34,7 +34,7 @@ Do note that some different types may merkleize to the same root:
 ## Representation
 
 Mapping *valid* instances of the same type to a byte sequence is bijective:
-- Serialization: Any two different values *of te same type* cannot have the same representation.
+- Serialization: Any two different values *of the same type* cannot have the same representation.
 - Deserialization: Any *valid* representation *of a given type* cannot be interpreted as two different values *of that same type*.
 
 Mapping *any* instance of a type to any byte sequence is *injective and non-surjective*:
