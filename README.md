@@ -80,6 +80,7 @@ The proposals, drafts, candidates and finished documents are discussed through i
 | Python      | Eth 2.0                   | Ethereum Foundation               | CC0                | Spec               |                |
 | Go          | Prysm                     | Prysmatic Labs                    | MIT                | Active             |[`prysmaticlabs/go-ssz`](https://github.com/prysmaticlabs/go-ssz) |
 | Go          | ZRNT                      | Diederik Loerakker (@protolambda) | MIT                | Active             |[`protolambda/zssz`](https://github.com/protolambda/zssz) |
+| Go          | -                         | Ferran Borreguero (@ferranbt)     | MIT                | Active             |[`ferranbt/fastssz`](https://github.com/ferranbt/fastssz) |
 | Java        | Artemis                   | Consensys/PegaSys Eng.            | Apache-2.0         | Active             |[`PegaSysEng/artemis/util`](https://github.com/PegaSysEng/artemis/tree/master/util/src/main/java/tech/pegasys/artemis/util) |
 | Java        | Harmony                   | Harmony                           | Apache-2.0         | Active             |[`harmony-dev/beacon-chain-java/ssz`](https://github.com/harmony-dev/beacon-chain-java/tree/develop/ssz) |
 | Nim         | Nimbus                    | Status                            | MIT and Apache-2.0 | Active             |[`status-im/nim-beacon-chain/ssz.nim`](https://github.com/status-im/nim-beacon-chain/blob/master/beacon_chain/ssz.nim) |
