@@ -75,25 +75,25 @@ The proposals, drafts, candidates and finished documents are discussed through i
 
 ### Implementations
 
-| Language    | Project                   | Maintainer                        | License            | Status             | Implementation |
-|-------------|---------------------------|-----------------------------------|--------------------|--------------------|----------------|
-| Python      | Eth 2.0                   | Ethereum Foundation               | CC0                | Spec               |                |
-| Go          | Prysm                     | Prysmatic Labs                    | MIT                | Active             |[`prysmaticlabs/go-ssz`](https://github.com/prysmaticlabs/go-ssz) |
-| Go          | ZRNT                      | Diederik Loerakker (@protolambda) | MIT                | Active             |[`protolambda/zssz`](https://github.com/protolambda/zssz) |
-| Go          | -                         | Ferran Borreguero (@ferranbt)     | MIT                | Active             |[`ferranbt/fastssz`](https://github.com/ferranbt/fastssz) |
-| Java        | Artemis                   | Consensys/PegaSys Eng.            | Apache-2.0         | Active             |[`PegaSysEng/artemis/util`](https://github.com/PegaSysEng/artemis/tree/master/util/src/main/java/tech/pegasys/artemis/util) |
-| Java        | Harmony                   | Harmony                           | Apache-2.0         | Active             |[`harmony-dev/beacon-chain-java/ssz`](https://github.com/harmony-dev/beacon-chain-java/tree/develop/ssz) |
-| Nim         | Nimbus                    | Status                            | MIT and Apache-2.0 | Active             |[`status-im/nim-beacon-chain/ssz.nim`](https://github.com/status-im/nim-beacon-chain/blob/master/beacon_chain/ssz.nim) |
-| Python      | Trinity                   | Ethereum Foundation               | MIT                | Active             |[`ethereum/py-ssz`](https://github.com/ethereum/py-ssz) |
-| Rust        | Lighthouse                | Sigma Prime                       | Apache-2.0         | Active             |[`sigp/lighthouse/ssz`](https://github.com/sigp/lighthouse/tree/master/eth2/utils/ssz) |
-| Rust        | Shasper                   | ParityTech                        | GPL-3.0            | Active             |[`paritytech/shasper/ssz`](https://github.com/paritytech/shasper/tree/master/utils/ssz) |
-| Typescript  | Lodestar                  | Chainsafe Systems                 | LGPL-v3.0          | Active             |[`ChainSafe/lodestar/ssz`](https://github.com/ChainSafe/lodestar/tree/master/packages/ssz) |
-| C#          | Cortex                    | Sly Gryphon (@sgryphon)           | LGPL-v3.0          | Under construction |[`sgryphon/cortex-ssz`](https://github.com/sgryphon/cortex-ssz) |
-| TypeScript  | Lodestar                  | ChainSafe Systems                 | Apache-2.0         | Archived           |[`ChainSafe/ssz-js`](https://github.com/ChainSafe/ssz-js) |
-| Java        | Cava                      | ConsenSys                         | Apache-2.0         | Archived           |[`ConsenSys/cava/ssz`](https://www.github.com/ConsenSys/cava/tree/master/ssz) |
-| Swift       | Yeeth                     | Dean Eigenmann (@decanus, @yeeth) | MIT                | Incomplete         |[`yeeth/SimpleSerialize.swift`](https://github.com/yeeth/SimpleSerialize.swift) |
-| C#          | -                         | Jordan Andrews (@codingupastorm)  | MIT                | Discontinued       |[`codingupastorm/csharp-ssz`](https://github.com/codingupastorm/csharp-ssz) |
-| C++         | -                         | Jiyun Kim (@NAKsir-melody)        | -                  | Discontinued       |[`NAKsir-melody/cpp_ssz`](https://github.com/NAKsir-melody/cpp_ssz) |
+| Language    | Project           | Maintainer                        | License            | Status             | Features / Notes                | Implementation |
+|-------------|-------------------|-----------------------------------|--------------------|--------------------|---------------------------------|----------------|
+| Python      | Eth 2.0           | Ethereum Foundation               | CC0                | Spec               | Spec                            |                |
+| Go          | ZRNT              | Diederik Loerakker (@protolambda) | MIT                | Active             | Unsafe Go, fast, streaming      |[`protolambda/zssz`](https://github.com/protolambda/zssz) |
+| Go          | ZRNT              | Diederik Loerakker (@protolambda) | MIT                | Active             | Generic, caching, datasharing   |[`protolambda/ztyp`](https://github.com/protolambda/ztyp) |
+| Go          | Prysm             | Ferran Borreguero (@ferranbt)     | MIT                | Active             | Code-gen, fast                  |[`ferranbt/fastssz`](https://github.com/ferranbt/fastssz/) |
+| Java        | Teku              | Consensys/PegaSys Eng.            | Apache-2.0         | Active             | Caching, datasharing            |[`PegaSysEng/teku/ssz`](https://github.com/PegaSysEng/teku/tree/master/ssz/src/main/java/tech/pegasys/teku/ssz) |
+| Nim         | Nimbus            | Status                            | MIT and Apache-2.0 | Active             | In-place decode, Caching        |[`status-im/nim-beacon-chain/ssz.nim`](https://github.com/status-im/nim-beacon-chain/blob/master/beacon_chain/ssz.nim) |
+| Python      | Trinity           | Ethereum Foundation               | MIT                | Active             | Pyrsistent, partial caching     |[`ethereum/py-ssz`](https://github.com/ethereum/py-ssz) |
+| Python      | Pyspec / Eth2.py  | Diederik Loerakker (@protolambda) | MIT                | Active             | Datasharing, caching, streaming |[`protolambda/remerkleable`](https://github.com/protolambda/remerkleable) |
+| Rust        | Lighthouse        | Sigma Prime                       | Apache-2.0         | Active             | Partial caching, fast           |[`sigp/lighthouse/ssz`](https://github.com/sigp/lighthouse/tree/master/eth2/utils/ssz) |
+| Typescript  | Lodestar          | Chainsafe Systems                 | LGPL-v3.0          | Active             | Both Tree & structural, caching |[`ChainSafe/lodestar/ssz`](https://github.com/ChainSafe/lodestar/tree/master/packages/ssz) |
+| Go          | Prysm             | Prysmatic Labs                    | MIT                | Deprecated         | Generic, reflection, known bugs |[`prysmaticlabs/go-ssz`](https://github.com/prysmaticlabs/go-ssz) |
+| Java        | Harmony           | Harmony                           | Apache-2.0         | Deprecated         | Partially merged into Teku      |[`harmony-dev/beacon-chain-java/ssz`](https://github.com/harmony-dev/beacon-chain-java/tree/develop/ssz) |
+| C#          | Cortex            | Sly Gryphon (@sgryphon)           | LGPL-v3.0          | Under construction | Experimental                    |[`sgryphon/cortex-ssz`](https://github.com/sgryphon/cortex-ssz) |
+| TypeScript  | Lodestar          | ChainSafe Systems                 | Apache-2.0         | Archived           | See new Lodestar SSZ            |[`ChainSafe/ssz-js`](https://github.com/ChainSafe/ssz-js) |
+| Rust        | Shasper           | ParityTech                        | GPL-3.0            | Discontinued       | No updates                      |[`paritytech/shasper/ssz`](https://github.com/paritytech/shasper/tree/master/utils/ssz) |
+| Swift       | Yeeth             | Dean Eigenmann (@decanus, @yeeth) | MIT                | Discontinued       | Incomplete                      |[`yeeth/SimpleSerialize.swift`](https://github.com/yeeth/SimpleSerialize.swift) |
+| Java        | Cava              | ConsenSys                         | Apache-2.0         | Discontinued       | Outdated, incomplete            |[`ConsenSys/cava/ssz`](https://www.github.com/ConsenSys/cava/tree/master/ssz) |
 
 ## License
 
