@@ -4,7 +4,6 @@ The basic types all strictly follow the basic-type principles:
 - 1 to 32 bytes long, for merkleization purposes.
 - A power of 2 bytes long, for packing/alignment purposes. See [chunkification](../merkleization/chunkify.md).
 - [Fixed length](../representation/fixed_variable_size.md)
-- No two ways to describe one value of the same type.
 
 ## Unsinged integers
 
