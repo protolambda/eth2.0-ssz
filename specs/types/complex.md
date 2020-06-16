@@ -41,7 +41,7 @@ The maximum list length is preset as `N` and called the "list limit".
 
 This limit is preset for two primary reasons:
 - Stable merkleization: there are no variable numbers in the hash-tree-root definition.
-- Strong garantuees on inputs: lists should never contain more elements than their limit was designed for.
+- Strong guarantees on inputs: lists should never contain more elements than their limit states it was designed for.
 
 #### Allocation
 
@@ -54,6 +54,7 @@ Hence, lists should not be allocated to their full limit for larger numbers.
 ### Representation
 
 Serialized and deserialized like a [Sequence](../representation/sequences.md) of the `values`, all of type `T`.
+The limit of the list should be enforced, to ensure that no more than `N` elements are serialized or deserialized.
 
 Note: A list is by definition variable-size, but this does not necessarily mean its elements are.
 
@@ -61,7 +62,7 @@ Note: A list is by definition variable-size, but this does not necessarily mean 
 
 Note: the contents subtree (not including the length mix-in) is padded to fit the limit of the bitlist.
 
-`root = mix_in_num(merkle_subtree(chunkify(values), limit=chunk_count(Lit[T,N])), length)`,
+`root = mix_in_num(merkle_subtree(chunkify(values), limit=chunk_count(List[T, N])), length)`,
  see [`merkle_subtree`](../merkleization/subtree_merkleization.md),
   [`chunkify, chunk_count`](../merkleization/chunkify.md) and [`mix_in_num`](../merkleization/mixin.md). 
 
