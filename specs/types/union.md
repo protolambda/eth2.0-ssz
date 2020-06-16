@@ -4,7 +4,7 @@ Type: `Union[type_0, type_1, ...]`
 
 Default: `default(type_0)`
 
-A [`Union`](https://en.wikipedia.org/wiki/Union_type) provides a the ability represent a set of predetermined types in the same tree and serialization position.
+A [`Union`](https://en.wikipedia.org/wiki/Union_type) provides the ability to represent a set of predetermined types in the same tree and serialization position.
 
 A special `null` type may be used as first type parameter to emulate an `Option`, any other type parameter than the first MUST not be `null`.
 A `null` as a standalone type is illegal.
