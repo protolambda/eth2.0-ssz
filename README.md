@@ -58,13 +58,21 @@ In summary, this translates to:
    - Make the case for the addition
    - Describe the shape of a solution
    - Identify potential challenges 
-2. **Draft**        Precisely describe the syntax and semantics using formal spec language 
-3. **Candidate** 	Indicate that further refinement will require feedback from implementations and users 
-4. **Finished** 	Indicate that the addition is ready for inclusion in the formal ECMAScript standard 
+2. **Draft**        Precisely describe the syntax and semantics.
+3. **Candidate** 	Indicate that further refinement will require feedback from implementations and users.
+4. **Finished** 	Indicate that the addition is ready for inclusion.
 
 Implementations can build on the stable stage, and offer support for unfinished feature stages separately.
 
 The proposals, drafts, candidates and finished documents are discussed through issues and PRs on GitHub, along with the relevant ETH 2.0 communication channels.
+
+One difference with the regular process is that since SSZ is not widely running in production yet,
+ and features have been modeled already, but not formally verified yet, the spec is more welcoming to some types of modifications:
+- Language, cosmetics, examples and references in any spec document may still change
+- Spec documents may be merged or split, to aid in the organization process of the SSZ spec as a whole.
+
+Once finished however, the effective functionality does not change without an upgrade path for implementers.
+
 
 ### Implementations
 
