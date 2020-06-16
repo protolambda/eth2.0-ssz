@@ -1,3 +1,6 @@
+Stage: Finished
+
+
 # Merkle proofs
 
 ## For beginners

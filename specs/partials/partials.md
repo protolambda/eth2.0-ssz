@@ -1,4 +1,5 @@
-Stage 1: experimental!
+Stage: Proposal
+
 
 # Partials
 

@@ -1,3 +1,6 @@
+Stage: Candidate
+
+
 # Generalized Merkle tree index
 
 The hash-tree-root of all SSZ types merkleizes the contents as a binary tree.

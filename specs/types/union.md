@@ -1,3 +1,6 @@
+Stage: Candidate
+
+
 # Union
 
 Type: `Union[type_0, type_1, ...]`

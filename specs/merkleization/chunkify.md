@@ -1,3 +1,6 @@
+Stage: Candidate
+
+
 # Chunkify
 
 `chunks` are `Bytes32` intermediate merkle values, used for e.g. [subtree merkleization](./subtree_merkleization.md) leafs.

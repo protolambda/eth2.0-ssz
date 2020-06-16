@@ -1,3 +1,6 @@
+Stage: Candidate
+
+
 # Merkle Mix-ins
 
 Construct: `Mix(core, tag)`

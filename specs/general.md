@@ -1,3 +1,6 @@
+Stage: Finished
+
+
 # General
 
 This document outlines general things such as the principles and design choices behind SSZ.

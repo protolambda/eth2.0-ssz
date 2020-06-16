@@ -61,10 +61,12 @@ In summary, this translates to:
 2. **Draft**        Precisely describe the syntax and semantics.
 3. **Candidate** 	Indicate that further refinement will require feedback from implementations and users.
 4. **Finished** 	Indicate that the addition is ready for inclusion.
-
+ 
 Implementations can build on the stable stage, and offer support for unfinished feature stages separately.
 
 The proposals, drafts, candidates and finished documents are discussed through issues and PRs on GitHub, along with the relevant ETH 2.0 communication channels.
+
+The Strawperson stage is only applicable to open PRs, and will need to become a rounded Proposal before being merged.
 
 One difference with the regular process is that since SSZ is not widely running in production yet,
  and features have been modeled already, but not formally verified yet, the spec is more welcoming to some types of modifications:

@@ -1,3 +1,6 @@
+Stage: Finished
+
+
 # Fixed-size and variable-size
 
 SSZ makes a difference between fixed-size and dynamic-size objects, based on a recursive definition to check if the byte-length is variable or not.

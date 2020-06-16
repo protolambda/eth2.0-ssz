@@ -1,3 +1,6 @@
+Stage: Candidate
+
+
 # Classic merkle proof backing
 
 This format is not optimal for newer multi-proof use cases, but does offer:

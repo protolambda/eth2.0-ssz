@@ -1,3 +1,6 @@
+Stage: Candidate
+
+
 # Subtree Merkleization
 
 Merkleization does not have to be irregular, many types are designed to map to a stable complete tree.
@@ -10,6 +13,7 @@ Subtree merkleization `merkle_subtree(chunks, limit=None)` (see [chunkification]
         - if no limit: pad the `chunks` with zeroed chunks to `next_pow_of_two(len(chunks))` (virtually for memory efficiency).
         - if `limit > len(chunks)`, pad the `chunks` with zeroed chunks to `next_pow_of_two(limit)` (virtually for memory efficiency).
         - if `limit < len(chunks)`: do not merkleize, input exceeds limit. Raise an error instead.
+        - if `limit == len(chunks)`: no-op, chunks have exactly the right length already.
     * Then, merkleize the chunks (empty input is padded to 1 zero chunk):
         - If `1` chunk: the root is the chunk itself.
         - If `> 1` chunks: merkleize as binary tree.

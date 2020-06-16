@@ -1,3 +1,6 @@
+Stage: Finished
+
+
 # Hashing
 
 SSZ utilizes the SHA-256 hash function.

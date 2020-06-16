@@ -1,3 +1,6 @@
+Stage: Candidate
+
+
 # Types
 
 Types define how we interpret and interact with SSZ data.
