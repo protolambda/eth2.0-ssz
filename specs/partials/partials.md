@@ -13,6 +13,14 @@ This separation of the typed interface and the multi-proof enables different abs
    - E.g. an aggregate proof can be verified first, and subsequent individual processes can be given a scoped interface to interact with the proof data.
 - The typing interface can be extended, and new proof-backings may be introduced in the future.
 
+Note that the concept of [Summaries and expansions](../navigation/summaries_expansions.md) is a subset of that of partials:
+instead of summarizing a type nicely at the edges of the type (i.e. summarizing fields or elements),
+arbitrary subsets of an element can be summarised as a whole.
+
+Deciding between a partial and a summary is not difficult:
+- If you need a small subset, or a very arbitrary subset, utilize the expressive flexibility of a partial.
+- If you only need to leave out a single part, leave it out by summarizing it, and keep the type as static as possible.
+
 ## Core functionality
 
 ### `PartialType(base_type: SSZType, paths: Set[Path])`

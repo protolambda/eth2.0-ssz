@@ -1,9 +1,9 @@
 # Classic merkle proof backing
 
 This format is not optimal for newer multi-proof use cases, but does offer:
-- simplicity
-- backwards compatibility
-- consistency with regular single-leaf merkle proofs
+- Simplicity
+- Backwards compatibility
+- Consistency with regular single-leaf merkle proofs
 
 ## Contents
 
@@ -150,5 +150,7 @@ def verify_merkle_multiproof(leaves: Sequence[Bytes32],
     return calculate_multi_merkle_root(leaves, proof, indices) == root
 ```
 
-TODO: write optimized single-pass stack based merkleization alternative.
+A challenge for the reader now, but planned as appendix to this spec,
+ is to write an optimized single-pass stack based merkleization alternative.
+Since even for a multi-proof, it is not necessary to buffer too much at once.
  

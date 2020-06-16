@@ -25,7 +25,7 @@ Given ordered `elements` of the same basic type:
 
 #### For bitfields
 
- - Serialize the Bitlist or Bitfield.
+ - Serialize the Bitlist or bitvector.
  - The length-delimiting bit for bitlists is excluded: bitlists mix-in the bit-length and do not need the delimiting bit.
  - Right-pad the serialized bytes to a multiple of 32.
  - Partition into chunks: split the bytes into groups of consecutive `32` bytes

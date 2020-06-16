@@ -12,6 +12,8 @@ Example:
 MyType/some_field/abc_list/123/foobar
 ```
 
+Languages may have different levels of expressiveness for these type of paths, and static languages may require templates or code-generation for this.
+
 The Python-like SSZ spec overloads the `/` operator to present paths:
 
 ```python
