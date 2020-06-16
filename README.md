@@ -46,14 +46,6 @@ The design choices for SSZ originate from the desire for:
 
 Minimalism and advanced use cases are almost orthogonal. To work around this, this SSZ specification maintains a strong separation of the different stack elements, and a feature introduction model with stages.
 
-### Conceptual dependency graph
-
-The SSZ specification has the following general architecture: 
-
-![SSZ architecture](./ssz_arch.svg)
-
-Note that for **Types** and **Merkle proof backings**, different options exist, and the specifications building for each of the options may not all be complete, or in the same standardization stage.
-
 ### Feature stages
 
 Features are introduced by progressing through stages, alike to the [TC39 Process implemented by EcmaScript](https://tc39.es/process-document/).
