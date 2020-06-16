@@ -16,7 +16,8 @@ Default value: `[default(T)] * N`, i.e. all elements set to their default value.
 
 A Vector is a sequence of elements, all of the same type `T`, and of fixed length `N`.
 
-Empty vectors (`N = 0`) are illegal.
+Empty vectors (`N = 0`) are illegal types, even if the element type `T` is dynamic length.
+This is to avoid fixed-length types of 0 length, which break various size assumptions in deserialization. 
 
 ### Representation
 
@@ -33,7 +34,10 @@ Type: `List[T, N]`
 
 Default value: `[]`, i.e. empty list.
 
-A List is a sequence of elements, all of the same type `T`, and can be any length from `0` to `N`.
+A List is a sequence of elements, all of the same type `T`, and can be any length from `0` to `N` (inclusive).
+
+Unlike `Vector` and `Container`, a list can have a `N = 0` limit, since it is dynamic length regardless, 
+and types containing the list can handle a 0 byte length representation of a dynamic length element.
 
 ### List Limits
 
@@ -77,7 +81,7 @@ A Container is a predefined sequence of fields, each field can be defined as any
 
 Note that field names are not included in serialization or merkleization: a Container is not self-describing.
 
-An empty container, i.e. 0 fields, is illegal.
+An empty container, i.e. 0 fields, is an illegal type. Fixed-length types cannot have a 0 length serialized representation.
 
 ### Representation
 

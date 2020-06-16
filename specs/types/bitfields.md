@@ -16,6 +16,8 @@ Type: `Bitvector[N]`
 
 Default value: `N` bits, all set to `0`
 
+Note that a `Bitvector[0]` is an illegal type, since fixed-length types many not have 0 byte-length representations.
+
 ### Representation
 
 A fixed-length sequence of `N` bits, packed into `(N + 7) // 8` bytes.
